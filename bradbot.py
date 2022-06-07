@@ -24,7 +24,8 @@ async def on_message(message):
 	if message.content.startswith("$bradbot"):
 		line = random.choice(words)
 		author = message.author.name
-		print("Brad said '{}' to {}".format(line, author))
+		server = message.guild.name
+		print("Brad said '{}' to {} in the server {}".format(line, author, server))
 		await message.channel.send(line)
 
 client.run(TOKEN)
