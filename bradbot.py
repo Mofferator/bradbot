@@ -25,11 +25,11 @@ async def on_message(message):
 		line = random.choice(words)
 		author = message.author.name
 		server = message.guild.name
-		print("Brad said '{}' to {} in the server '{}'".format(line, author, server))
+		print("%-25s %-15s %s" %(server, author, line))
 		await message.channel.send(line)
 
 @client.event
 async def on_guild_join(guild):
-	print("Joined server: '{}'".format(guild.name))
+	print("BradBot joined server: '{}'".format(guild.name))
 
 client.run(TOKEN)
