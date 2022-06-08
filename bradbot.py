@@ -25,7 +25,7 @@ async def on_message(message):
 		line = random.choice(words)
 		author = message.author.name
 		server = message.guild.name
-		print("%-25s %-15s Brad said:'%s'" %(server, author, line))
+		print("%-25s %-25s Brad said:'%s'" %(server, author, line))
 		await message.channel.send(line)
 
 @client.event
