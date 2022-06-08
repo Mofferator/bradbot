@@ -28,4 +28,8 @@ async def on_message(message):
 		print("Brad said '{}' to {} in the server {}".format(line, author, server))
 		await message.channel.send(line)
 
+@client.event
+async def on_guild_join(guild):
+	print("Joined server: '{}'".format(guild.name))
+
 client.run(TOKEN)
