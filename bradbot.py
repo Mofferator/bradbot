@@ -39,7 +39,7 @@ async def on_reaction_add(reaction, user):
 	if reaction.message.author == client.user:
 		message_id = reaction.message.id
 		msg_info = messagedb.getMessageInfo(message_id)
-		if msg_info != [] and len(reaction.message.reactions) == 1:
+		if msg_info != [] and len(reaction.message.reactions) == 1 and reaction.message.reactions[0].count == 1:
 			embed=discord.Embed(title="Match {}".format(msg_info[0][4]), url="https://opendota.com/matches/{}/chat".format(msg_info[0][4]), color=0xff0000)
 			embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/940421411024011275/986373541601640518/unknown.png")
 			print("%-25s %-35s Match ID fetched:'%s'" %(reaction.message.guild.name, "N/A", msg_info[0][4]))
