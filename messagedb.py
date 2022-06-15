@@ -1,6 +1,12 @@
-import sqlite3
+import sqlite3, os
+from dotenv import load_dotenv
 
-conn = sqlite3.connect('messages.db')
+if os.path.exists('.env'):
+	PATH_PREFIX = ""
+else:
+	PATH_PREFIX = "/home/Mofferator/BradBot/bradbot/"
+
+conn = sqlite3.connect('{}messages.db'.format(PATH_PREFIX))
 
 c = conn.cursor()
 
