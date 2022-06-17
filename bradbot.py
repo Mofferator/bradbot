@@ -39,6 +39,11 @@ def bradhelp(message):
 	embed.add_field(name="Brad Face", value="Type `$bradface` to see a random picture of Bradley Dragon", inline=False)
 	return embed
 
+def listServers():
+	print("{} is in {} servers:".format(client.user, len(client.guilds)), flush=True)
+	for guild in client.guilds:
+		print("\t{}".format(guild.name), flush=True)
+
 @client.event
 async def on_ready():
 	print("Logged in as {0.user}".format(client), flush=True)
@@ -56,9 +61,14 @@ async def on_message(message):
 	if message.content.startswith("$bradface"):
 		msg = bradface(message)
 		await message.channel.send(msg)
+		print("%-25s %-35s Bradface:'%s'" %(message.guild.name, message.author, ":)"), flush=True)
 
 	if message.content.startswith("$bradhelp"):
 		await message.reply(embed=bradhelp(message))
+		print("%-25s %-35s Requested help" %(message.guild.name, message.author), flush=True)
+
+	if message.content.startswith("$listservers"):
+		listServers()
 
 @client.event
 async def on_guild_join(guild):
