@@ -29,9 +29,11 @@ def bradbot(message):
 	return line
 
 def bradface(message):
+	print("%-25s %-35s Bradface:'%s'" %(message.guild.name, message.author, ":)"), flush=True)
 	return random.choice(image_urls)
 
 def bradhelp(message):
+	print("%-25s %-35s Requested help" %(message.guild.name, message.author), flush=True)
 	embed=discord.Embed(title="Brad Bot Help", url="https://github.com/Mofferator/bradbot", color=0xff0000)
 	embed.set_thumbnail(url=random.choice(image_urls))
 	embed.add_field(name="Brad Bot", value="Type `$bradbot` to make Brad Bot say one of his {} all chat lines at random".format(len(words)), inline=False)
@@ -59,14 +61,11 @@ async def on_message(message):
 		messagedb.addMessage(sent.id, sent.guild.id, sent.guild.name, msg[0], msg[1], message.author.id, message.author.name)
 
 	if message.content.startswith("$bradface"):
-		msg = bradface(message)
-		await message.channel.send(msg)
-		print("%-25s %-35s Bradface:'%s'" %(message.guild.name, message.author, ":)"), flush=True)
+		await message.channel.send(bradface(message))
 
 	if message.content.startswith("$bradhelp"):
 		await message.reply(embed=bradhelp(message))
-		print("%-25s %-35s Requested help" %(message.guild.name, message.author), flush=True)
-
+		
 	if message.content.startswith("$listservers"):
 		listServers()
 
