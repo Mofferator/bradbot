@@ -34,7 +34,7 @@ def bradface(message):
 def bradhelp(message):
 	embed=discord.Embed(title="Brad Bot Help", url="https://github.com/Mofferator/bradbot", color=0xff0000)
 	embed.set_thumbnail(url=random.choice(image_urls))
-	embed.add_field(name="Brad Bot", value="Type `bradbot` to make Brad Bot say one of his {} all chat lines at random".format(len(words)), inline=False)
+	embed.add_field(name="Brad Bot", value="Type `$bradbot` to make Brad Bot say one of his {} all chat lines at random".format(len(words)), inline=False)
 	embed.add_field(name="Brad Bot React", value="React to any of Brad Bot's all chat lines to get a link to the match", inline=False)
 	embed.add_field(name="Brad Face", value="Type `$bradface` to see a random picture of Bradley Dragon", inline=False)
 	return embed
