@@ -8,7 +8,7 @@ else:
 	PATH_PREFIX = "/home/Mofferator/BradBot/bradbot/"
 
 load_dotenv('{}.env'.format(PATH_PREFIX))
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("TESTTOKEN")
 
 
 client = discord.Client()
